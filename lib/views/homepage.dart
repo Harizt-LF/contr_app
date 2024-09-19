@@ -1,3 +1,4 @@
+import 'package:contra_app/service/firebase_service.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(12))
                   )
                 ),
-                onPressed: () {}, 
+                onPressed: () {setMode('storage');}, 
                 child: const Text("Storage Mode", style: TextStyle(color: Colors.white, fontSize: 18),)
               ),
               const SizedBox(height: 10),
@@ -35,7 +36,7 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(12))
                   )
                 ),
-                onPressed: () {}, 
+                onPressed: () {setMode('drying');}, 
                 child: const Text("Drying Mode", style: TextStyle(color: Colors.white, fontSize: 18),)
               )
           ])
