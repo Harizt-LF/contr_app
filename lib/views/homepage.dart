@@ -6,23 +6,40 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: 
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.blue,
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 32),
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(12))
-                )
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: Center(
+          child: 
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 4),
+                  backgroundColor: Colors.blue,
+                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 32),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(12))
+                  )
+                ),
+                onPressed: () {}, 
+                child: const Text("Storage Mode", style: TextStyle(color: Colors.white, fontSize: 18),)
               ),
-              onPressed: () {}, 
-              child: const Text("Go Storage Mode")
-            )
-        ])
+              const SizedBox(height: 10),
+              TextButton(
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 4),
+                  backgroundColor: Colors.blue,
+                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 32),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(12))
+                  )
+                ),
+                onPressed: () {}, 
+                child: const Text("Drying Mode", style: TextStyle(color: Colors.white, fontSize: 18),)
+              )
+          ])
+        ),
       ),
     );
   }
