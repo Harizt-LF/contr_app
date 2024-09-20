@@ -24,7 +24,12 @@ Future<Widget> getHomepage() async {
 Future<void> setMode(String mode) async {
   DatabaseReference ref = database.ref('/serviceState');
   await ref.set(mode);
-  print("set berhasil dipanggil");
+}
+
+Future<String> getValue(String path) async{
+  DatabaseReference valueRef = database.ref(path);
+  final _value = await valueRef.get();
+  return _value.value.toString();
 }
 
 

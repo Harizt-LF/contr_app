@@ -1,4 +1,3 @@
-import 'package:contra_app/main.dart';
 import 'package:contra_app/service/firebase_service.dart';
 import 'package:contra_app/views/storage_page.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +24,7 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(12))
                   )
                 ),
-                onPressed: (){Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => StoragePage()));}, 
+                onPressed: (){Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const StoragePage()));}, 
                 child: 
                 const Text("Storage Mode", style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700,color: Colors.white, fontSize: 18),)
               ),
