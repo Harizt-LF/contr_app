@@ -1,4 +1,6 @@
+import 'package:contra_app/main.dart';
 import 'package:contra_app/service/firebase_service.dart';
+import 'package:contra_app/views/storage_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 32),
         child: Center(
           child: 
           Column(
@@ -23,8 +25,9 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(12))
                   )
                 ),
-                onPressed: () {setMode('storage');}, 
-                child: const Text("Storage Mode", style: TextStyle(color: Colors.white, fontSize: 18),)
+                onPressed: (){Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => StoragePage()));}, 
+                child: 
+                const Text("Storage Mode", style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700,color: Colors.white, fontSize: 18),)
               ),
               const SizedBox(height: 10),
               TextButton(
@@ -37,7 +40,7 @@ class HomePage extends StatelessWidget {
                   )
                 ),
                 onPressed: () {setMode('drying');}, 
-                child: const Text("Drying Mode", style: TextStyle(color: Colors.white, fontSize: 18),)
+                child: const Text("Drying Mode", style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700, color: Colors.white, fontSize: 18),)
               )
           ])
         ),
