@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                   )
                 ),
                 onPressed: () {setMode('drying');}, 
-                child: const Text("Drying Mode", style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700, color: Colors.white, fontSize: 18),)
+                child: const Text("Drying Mode", style: TextStyle(fontFamily: 'Montserrat',  color: Colors.white, fontSize: 18),)
               )
           ])
         ),

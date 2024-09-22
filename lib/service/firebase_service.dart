@@ -26,10 +26,10 @@ Future<void> setMode(String mode) async {
   await ref.set(mode);
 }
 
-Future<String> getValue(String path) async{
-  DatabaseReference valueRef = database.ref(path);
-  final _value = await valueRef.get();
-  return _value.value.toString();
-}
+// Future<String> getValue(String path) async{
+//   DatabaseReference valueRef = database.ref(path);
+//   final _value = await valueRef.get();
+//   return _value.value.toString();
+// }
 
 
