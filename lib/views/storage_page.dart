@@ -44,7 +44,7 @@ class _StoragePageState extends State<StoragePage> {
         elevation: 4,
         shadowColor: Colors.black,
         backgroundColor: Colors.white,
-        leading: IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back, color: Colors.blue,)),
+        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(Icons.arrow_back, color: Colors.blue,)),
         title: const Text('Storage', style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 24),),
         centerTitle: true,
         ),
@@ -84,11 +84,11 @@ class _StoragePageState extends State<StoragePage> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)
                     ),
-                    child: const Padding(
+                    child:  Padding(
                       padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
                       child: Column(
                         children: [
-                          Text('13', style: TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 60),
+                          Text('8', style: TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 60),
                           ),
                           Text('Hours', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 24),
                           )
@@ -98,7 +98,7 @@ class _StoragePageState extends State<StoragePage> {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

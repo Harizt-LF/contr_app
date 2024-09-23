@@ -6,7 +6,7 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   getHomepage().then((value){
-    runApp( MyApp(page: value));
+    runApp( MyApp(page: value));  //Ini perlu di fix
   });
 }
 
@@ -46,6 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 235, 235, 235),
       appBar: AppBar(
         title: Text(widget.title),
       ),
