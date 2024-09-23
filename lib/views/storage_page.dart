@@ -71,7 +71,7 @@ class _StoragePageState extends State<StoragePage> {
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)
+                      borderRadius: BorderRadius.circular(10)
                     ),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
@@ -89,7 +89,7 @@ class _StoragePageState extends State<StoragePage> {
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20)
+                      borderRadius: BorderRadius.circular(10)
                     ),
                     child:  const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
@@ -150,17 +150,20 @@ class _StoragePageState extends State<StoragePage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: double.infinity,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('Go to drying mode ?', style: const TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 14),),
-                      SizedBox(width: 10),
+                      const Text('Go to drying mode ?', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 14),),
+                      const SizedBox(width: 10),
                       ElevatedButton(style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)
+                        ) ,
                         backgroundColor: Colors.blue
-                      ),onPressed: (){}, child: Text("Go Drying Mode", style: TextStyle(fontFamily: 'Montserrat', color: Colors.white, fontWeight: FontWeight.w700)))
+                      ),onPressed: (){}, child: const Text("Go Drying Mode", style: TextStyle(fontFamily: 'Montserrat', color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12)))
                     ],
                   ),
                 )
