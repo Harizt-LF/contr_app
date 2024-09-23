@@ -22,6 +22,11 @@ class _StoragePageState extends State<StoragePage> {
     _dataListener();
   }
 
+  @override
+  void dispose(){
+    super.dispose();
+  }
+
   void _dataListener(){
     DatabaseReference refFan = FirebaseDatabase.instance.ref('/defuzzy');
     // DatabaseReference refHeater = FirebaseDatabase.instance.ref('/defuzzy/fan');
@@ -29,10 +34,12 @@ class _StoragePageState extends State<StoragePage> {
     refFan.onValue.listen((DatabaseEvent event){
       final datasnapshot = event.snapshot.value;
       Map<dynamic, dynamic> dataValue = datasnapshot as Map<dynamic, dynamic>;
-      setState(() {
+      if(mounted){
+        setState(() {
         _fanValue = dataValue['fan'];
         _heaterValue = dataValue['heater'];
       });
+      }
     });
   }
 
@@ -66,7 +73,7 @@ class _StoragePageState extends State<StoragePage> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)
                     ),
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
                       child: Column(
                         children: [
@@ -84,7 +91,7 @@ class _StoragePageState extends State<StoragePage> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)
                     ),
-                    child:  Padding(
+                    child:  const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
                       child: Column(
                         children: [
@@ -99,6 +106,66 @@ class _StoragePageState extends State<StoragePage> {
                 ],
               ),
             ),
+            const SizedBox(height: 30),
+            const Text('Devices Status ⚡', style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 24)),
+            const SizedBox(height: 12),
+            Column(
+                children: [
+                  Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 18),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('Fan Speed', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 16)),
+                        Row(
+                          children: [
+                            Text('$_fanValue', style: const TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 16),),                          
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 18),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text('Heater Status', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 16)),
+                        Row(
+                          children: [
+                            Text('$_heaterValue', style: const TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 16),),                          
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                SizedBox(
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Go to drying mode ?', style: const TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 14),),
+                      SizedBox(width: 10),
+                      ElevatedButton(style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue
+                      ),onPressed: (){}, child: Text("Go Drying Mode", style: TextStyle(fontFamily: 'Montserrat', color: Colors.white, fontWeight: FontWeight.w700)))
+                    ],
+                  ),
+                )
+                ]
+              ),
           ],
         ),
       ),

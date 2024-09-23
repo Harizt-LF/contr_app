@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(12))
                   )
                 ),
-                onPressed: (){Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const StoragePage()));}, 
+                onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const StoragePage()));}, 
                 child: 
                 const Text("Storage Mode", style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700,color: Colors.white, fontSize: 18),)
               ),
