@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         });
       }else if(value == 'drying'){
         SchedulerBinding.instance.addPostFrameCallback((_){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const DryingPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const DryingPage(fromStorage: false)));
         });
       }
     });
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.all(Radius.circular(12))
                   )
                 ),
-                onPressed: () {setMode('drying');}, 
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const DryingPage(fromStorage: false)));}, 
                 child: const Text("Drying Mode", style: TextStyle(fontFamily: 'Montserrat',   fontWeight: FontWeight.w700,color: Colors.white, fontSize: 18),)
               )
           ])

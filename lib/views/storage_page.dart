@@ -1,4 +1,5 @@
 import 'package:contra_app/service/firebase_service.dart';
+import 'package:contra_app/views/drying_page.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
@@ -71,7 +72,7 @@ class _StoragePageState extends State<StoragePage> {
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(10)
+                      borderRadius: BorderRadius.circular(12)
                     ),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
@@ -89,7 +90,7 @@ class _StoragePageState extends State<StoragePage> {
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(10)
+                      borderRadius: BorderRadius.circular(12)
                     ),
                     child:  const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
@@ -163,7 +164,9 @@ class _StoragePageState extends State<StoragePage> {
                           borderRadius: BorderRadius.circular(8)
                         ) ,
                         backgroundColor: Colors.blue
-                      ),onPressed: (){}, child: const Text("Go Drying Mode", style: TextStyle(fontFamily: 'Montserrat', color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12)))
+                      ),onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const DryingPage(fromStorage: true)));
+                      }, child: const Text("Go Drying Mode", style: TextStyle(fontFamily: 'Montserrat', color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12)))
                     ],
                   ),
                 )
