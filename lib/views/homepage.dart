@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     getHomepage().then((value){
       if(value == 'storage'){
         SchedulerBinding.instance.addPostFrameCallback((_){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const StoragePage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const StoragePage(fromDrying: false)));
         });
       }else if(value == 'drying'){
         SchedulerBinding.instance.addPostFrameCallback((_){
@@ -28,6 +28,11 @@ class _HomePageState extends State<HomePage> {
         });
       }
     });
+  }
+
+  @override
+  void dispose(){
+    super.dispose();
   }
 
 
@@ -52,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.all(Radius.circular(12))
                   )
                 ),
-                onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const StoragePage()));}, 
+                onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context) => const StoragePage(fromDrying: false,)));}, 
                 child: 
                 const Text("Storage Mode", style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700,color: Colors.white, fontSize: 18),)
               ),

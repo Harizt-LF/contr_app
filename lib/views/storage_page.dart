@@ -4,7 +4,9 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class StoragePage extends StatefulWidget {
-  const StoragePage({super.key});
+  const StoragePage({super.key, required this.fromDrying});
+
+  final bool? fromDrying;
 
   @override
   State<StoragePage> createState() => _StoragePageState();
@@ -52,7 +54,14 @@ class _StoragePageState extends State<StoragePage> {
         elevation: 4,
         shadowColor: Colors.black,
         backgroundColor: Colors.white,
-        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: const Icon(Icons.arrow_back, color: Colors.blue,)),
+        leading: IconButton(onPressed: (){
+           if(widget.fromDrying == true){
+                Navigator.of(context).popUntil((route) => route.isFirst);
+              } else {
+                Navigator.pop(context);
+              }
+        }, 
+        icon: const Icon(Icons.arrow_back, color: Colors.blue,)),
         title: const Text('Storage', style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 24),),
         centerTitle: true,
         ),

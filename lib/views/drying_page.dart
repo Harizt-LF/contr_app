@@ -1,3 +1,4 @@
+import 'package:contra_app/views/storage_page.dart';
 import 'package:flutter/material.dart';
 import 'package:contra_app/service/firebase_service.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -142,7 +143,26 @@ class DryingPageState extends State<DryingPage> {
                     ),
                   ),
                 ],
-              )
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('Go to storage mode ?', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 14),),
+                      const SizedBox(width: 10),
+                      ElevatedButton(style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)
+                        ) ,
+                        backgroundColor: Colors.blue
+                      ),onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const StoragePage(fromDrying: true)));
+                      }, child: const Text("Go Storage Mode", style: TextStyle(fontFamily: 'Montserrat', color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12)))
+                    ],
+                  ),
+                )
             ]),
         ),
       ),
