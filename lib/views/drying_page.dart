@@ -34,7 +34,7 @@ class DryingPageState extends State<DryingPage> {
       Map<dynamic, dynamic> dataValue = datasnapshot as Map<dynamic, dynamic>;
       if(mounted){
         setState(() {
-        _humidityValue = dataValue['hum'];
+        _humidityValue = dataValue['hum'].toString();
         _temperatureValue = dataValue['temp'].toString();
       });
       }

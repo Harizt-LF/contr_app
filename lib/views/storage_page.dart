@@ -16,6 +16,8 @@ class _StoragePageState extends State<StoragePage> {
   
   String? _fanValue;
   String? _heaterValue;
+  int? _days;
+  int? _hours;
   FirebaseDatabase database = FirebaseDatabase.instance ;
 
   @override
@@ -31,8 +33,21 @@ class _StoragePageState extends State<StoragePage> {
   }
 
   void _dataListener(){
+    DatabaseReference duration = FirebaseDatabase.instance.ref('/duration');
     DatabaseReference refFan = FirebaseDatabase.instance.ref('/defuzzy');
     // DatabaseReference refHeater = FirebaseDatabase.instance.ref('/defuzzy/fan');
+
+    duration.onValue.listen((DatabaseEvent event){
+      final durationSnapshot = event.snapshot.value;
+      Map<dynamic, dynamic> durationValue = durationSnapshot as Map<dynamic, dynamic>;
+      if(mounted){
+        setState(() {
+          _days = durationValue['days'];
+          _hours = durationValue['hours'];
+          
+        });
+      }
+    });
 
     refFan.onValue.listen((DatabaseEvent event){
       final datasnapshot = event.snapshot.value;
@@ -83,13 +98,13 @@ class _StoragePageState extends State<StoragePage> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
                       child: Column(
                         children: [
-                          Text('23', style: TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 60),
+                          Text('$_days', style: const TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 60),
                           ),
-                          Text('Days', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 24),
+                          const Text('Days', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 24),
                           )
                         ],
                       ),
@@ -101,13 +116,14 @@ class _StoragePageState extends State<StoragePage> {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)
                     ),
-                    child:  const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
+                    child:  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
                       child: Column(
-                        children: [
-                          Text('8', style: TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 60),
+                        children: 
+                        [
+                          Text( '$_hours', style: const TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 60),
                           ),
-                          Text('Hours', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 24),
+                          const Text('Hours', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 24),
                           )
                         ],
                       ),
