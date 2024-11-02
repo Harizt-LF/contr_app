@@ -56,7 +56,9 @@ class _StoragePageState extends State<StoragePage> {
       if(mounted){
         setState(() {
         _fanValue = dataValue['fan'];
+        _fanValue = _fanValue?.substring(6);
         _heaterValue = dataValue['heater'];
+        _heaterValue = _heaterValue?.substring(7);
       });
       }
     });
