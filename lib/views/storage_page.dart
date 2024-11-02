@@ -105,7 +105,7 @@ class _StoragePageState extends State<StoragePage> {
                       padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
                       child: Column(
                         children: [
-                          Text('$_days', style: const TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 40),
+                          Text('$_days', style: const TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 30),
                           ),
                           const Text('Days', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 16),
                           )
@@ -124,7 +124,7 @@ class _StoragePageState extends State<StoragePage> {
                       child: Column(
                         children: 
                         [
-                          Text( '$_hours', style: const TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 40),
+                          Text( '$_hours', style: const TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 30),
                           ),
                           const Text('Hours', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 16),
                           )
@@ -142,7 +142,7 @@ class _StoragePageState extends State<StoragePage> {
                       padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 18),
                       child: Column(
                         children: [
-                          Text('$_minutes', style: const TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 40),
+                          Text('$_minutes', style: const TextStyle(fontFamily: 'Montserrat',fontWeight: FontWeight.w700,color: Colors.blue, fontSize: 30),
                           ),
                           const Text('Minutes', style: TextStyle(fontFamily: 'Montserrat',color: Colors.black87, fontSize: 16),
                           )
